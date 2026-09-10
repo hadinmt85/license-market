@@ -11,7 +11,7 @@ import CategoryB from "./components/CategoryB";
 import SpecialServices from "./components/SpecialServices";
 import Blog from "./components/Blog";
 
-function App() {
+export default function Home() {
   return (
     <div>
       <Header />
@@ -29,5 +29,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
