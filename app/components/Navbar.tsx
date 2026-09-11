@@ -12,7 +12,6 @@ import {
 const servicesColumns = [
     {
         title: "خرید اکانت هوش مصنوعی",
-        highlighted: true,
         items: [
             "خرید اکانت هوش مصنوعی",
             "خرید اکانت ابزارهای سئو",
@@ -20,7 +19,6 @@ const servicesColumns = [
             "خرید اکانت تریدینگ ویو",
             "اشتراک فضای ابری",
             "خرید اشتراک روزنامه و مجله",
-            "درخواست محصول جدید",
         ],
     },
     {
@@ -62,6 +60,14 @@ const servicesColumns = [
     },
 ];
 
+const aboutLinks = [
+    "درباره لایسنس مارکت",
+    "نظرسنجی و بهبود خدمات",
+    "قوانین",
+    "ارتباط با ما",
+    "همکاری با ما",
+];
+
 function Header() {
     return (
         <div className="bg-[#0C0C15] h-34 flex flex-row items-center px-37 justify-between max-sm:px-4 max-sm:py-4">
@@ -72,78 +78,70 @@ function Header() {
                         <NavigationMenuItem>
                             <Link href={"#"} className="text-white p-1 px-3 text-lg max-sm:hidden rounded-full hover:bg-[#d32e3b] hover:text-white">خانه</Link>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
                             <NavigationMenuTrigger className="text-white text-lg cursor-pointer rounded-full px-2 py-2 data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">
                                 خدمات ما
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <div
-                                    dir="rtl"
-                                    className="grid grid-cols-5 gap-8 p-2 w-[1000] bg-white text-right items-center"
-                                >
-                                    {servicesColumns.map((col) => (
-                                        <ul key={col.title} className="flex flex-col">
-                                            {!col.highlighted && (
-                                                <li className="font-bold text-lg text-[#0C0C15] mb-1 cursor-pointer hover:text-[#c72632]">
+                                <div dir="rtl" className="w-fit rounded-2xl bg-white px-4 py-2 text-right shadow-xl">
+                                    <div className="flex flex-row">
+                                        {servicesColumns.map((col, idx) => (
+                                            <div
+                                                key={col.title}
+                                                className={
+                                                    "min-w-max px-5 first:pr-0 last:pl-0" +
+                                                    (idx === 0 ? " border-l border-gray-200" : "")
+                                                }
+                                            >
+                                                <h3 className="mb-3 text-[17px] font-bold cursor-pointer block whitespace-nowrap rounded-lg px-2 py-2 text-[#0C0C15] transition hover:bg-[#fdecee] hover:text-[#d32e3b]">
                                                     {col.title}
-                                                </li>
-                                            )}
-                                            {col.items.map((item) => (
-                                                <li key={item} className="font-semibold">
-                                                    <NavigationMenuLink
-                                                        render={
+                                                </h3>
+
+                                                <ul className="flex flex-col gap-1">
+                                                    {col.items.map((item) => (
+                                                        <li key={item}>
                                                             <Link
                                                                 href="#"
-                                                                className={
-                                                                    col.highlighted
-                                                                        ? "text-[14px] hover:text-[#c72632] whitespace-nowrap"
-                                                                        : "text-gray-700 text-lg hover:text-[#E63946] whitespace-nowrap"
-                                                                }
-                                                            />
-                                                        }
-                                                    >
-                                                        {item}
-                                                    </NavigationMenuLink>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    ))}
+                                                                className="block whitespace-nowrap rounded-lg px-2 py-2 text-[16px] font-bold text-[#0C0C15] transition hover:bg-[#fdecee] hover:text-[#d32e3b]"
+                                                            >
+                                                                {item}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
                             <Link href={"#"} className="text-white p-1 px-2 text-lg max-sm:hidden rounded-full hover:bg-[#d32e3b] hover:text-white">وبلاگ</Link>
                         </NavigationMenuItem>
+
                         <NavigationMenuItem>
                             <NavigationMenuTrigger className="text-white text-lg cursor-pointer rounded-full data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">درباره ما</NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <ul className="grid p-2 w-[180]">
-                                    <li>
-                                        <NavigationMenuLink render={<Link href="#" className="hover:text-mauve-500 font-semibold text-[16px]" />}>
-                                            درباره لایسنس مارکت
-                                        </NavigationMenuLink>
-                                    </li>
-                                    <li>
-                                        <NavigationMenuLink render={<Link href="#" className="hover:text-mauve-500 font-semibold text-[16px]" />}>
-                                            نظرسنجی و بهبود خدمات
-                                        </NavigationMenuLink>
-                                    </li>
-                                    <li>
-                                        <NavigationMenuLink render={<Link href="#" className="hover:text-mauve-500 font-semibold text-[16px]" />}>
-                                            قوانین
-                                        </NavigationMenuLink>
-                                    </li>
-                                    <li>
-                                        <NavigationMenuLink render={<Link href="#" className="hover:text-mauve-500 font-semibold text-[16px]" />}>
-                                            ارتباط با ما
-                                        </NavigationMenuLink>
-                                    </li>
-                                    <li>
-                                        <NavigationMenuLink render={<Link href="#" className="hover:text-mauve-500 font-semibold text-[16px]" />}>
-                                            همکاری با ما
-                                        </NavigationMenuLink>
-                                    </li>
-                                </ul>
+                                <div dir="rtl" className="w-65 rounded-2xl bg-white p-3 text-right shadow-xl">
+                                    <ul className="flex flex-col gap-1">
+                                        {aboutLinks.map((label) => (
+                                            <li key={label}>
+                                                <NavigationMenuLink
+                                                    render={
+                                                        <Link
+                                                            href="#"
+                                                            className="block whitespace-nowrap rounded-lg px-2 py-2 text-[16px] font-bold text-[#0C0C15] transition hover:bg-[#fdecee] hover:text-[#d32e3b]"
+                                                        />
+                                                    }
+                                                >
+                                                    {label}
+                                                </NavigationMenuLink>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                     </NavigationMenuList>
