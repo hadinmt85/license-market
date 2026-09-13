@@ -72,7 +72,7 @@ function Offer() {
                 <Image className="size-24 ml-12 mt-20 max-sm:ml-0 max-sm:mt-2" src="/foto/pish.svg" alt="" width={96} height={96} />
                 <Image className="size-8 mr-7 mt-5 max-sm:mr-0 max-sm:mt-3" src="/foto/pash.svg" alt="" width={32} height={32} />
                 <div className="flex">
-                    <p className="text-white text-lg mr-2 mt-5 cursor-pointer font-medium">مشاهده همه</p>
+                    <p className="text-white text-base mt-5 cursor-pointer font-medium">مشاهده همه</p>
                     <Image className="size-4 mt-6" src="/foto/chevron.svg" alt="" width={16} height={16} />
                 </div>
             </div>
@@ -86,7 +86,7 @@ function Offer() {
                                         تخفیف
                                     </span>
                                     <Image className="h-55 rounded-3xl max-sm:w-full max-sm:h-auto" src={item.img} alt="" width={300} height={300} />
-                                    <p className="text-center text-[17px] mx-2 max-sm:px-2">
+                                    <p className="text-center text-[15px] mx-2 max-sm:px-2">
                                         {item.title}
                                     </p>
                                     <div className="flex flex-row justify-center gap-3 mt-3 max-sm:flex-wrap max-sm:px-2">
