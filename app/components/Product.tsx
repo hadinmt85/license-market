@@ -9,13 +9,13 @@ const forms = [
 
 export default function Product() {
     return (
-        <>
+        <div className="mt-25">
             <h3 className="text-2xl font-bold text-center mt-14 max-sm:text-2xl">پرفروش های این ماه</h3>
             <div className="flex flex-row justify-center gap-5 mt-10 max-sm:flex-col max-sm:w-[calc(100%-20px)] max-sm:p-3 max-sm:items-center max-sm:mx-auto">
                 {forms.map((form, index) => (
                     <ProductCard key={index} img={form.img} title={form.title} oldPrice={form.oldPrice} price={form.newPrice} showDiscount={true} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }

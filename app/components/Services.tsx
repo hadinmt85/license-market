@@ -17,7 +17,7 @@ const services = [
 
 const Services = () => {
     return (
-        <div>
+        <div className="mt-25">
             <h3 className="text-2xl font-bold text-center mt-14 mb-10 max-sm:text-2xl">خدمات لایسنس‌مارکت</h3>
             <div className="max-w-6xl mx-auto max-sm:px-2">
                 <div className="grid grid-cols-6 max-md:grid-cols-4 max-sm:grid-cols-3 divide-x divide-y divide-gray-200 border border-gray-200 rounded-md overflow-hidden">

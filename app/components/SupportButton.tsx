@@ -50,7 +50,6 @@ export default function SupportButton() {
                             </svg>
                         </button>
                     </div>
-
                     {activeTab === "menu" && (
                         <div className="flex flex-col gap-2.5 p-4">
                             <button
@@ -71,7 +70,6 @@ export default function SupportButton() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 6l-6 6 6 6" />
                                 </svg>
                             </button>
-
                             <a
                                 href="tel:+982191094400"
                                 className="group flex items-center gap-3.5 rounded-2xl border border-transparent p-3.5 text-right transition hover:border-rose-100 hover:bg-rose-50/70 hover:shadow-sm"
@@ -89,7 +87,6 @@ export default function SupportButton() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 6l-6 6 6 6" />
                                 </svg>
                             </a>
-
                             <a
                                 href="/faq"
                                 className="group flex items-center gap-3.5 rounded-2xl border border-transparent p-3.5 text-right transition hover:border-rose-100 hover:bg-rose-50/70 hover:shadow-sm"
@@ -110,7 +107,6 @@ export default function SupportButton() {
                             </a>
                         </div>
                     )}
-
                     {activeTab === "chat" && (
                         <>
                             <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-2.5">
@@ -125,7 +121,6 @@ export default function SupportButton() {
                                 </button>
                                 <p className="text-xs font-medium text-gray-500">بازگشت به منو</p>
                             </div>
-
                             <div className="flex h-64 flex-col gap-3 overflow-y-auto bg-gray-50/70 p-4">
                                 <div className="flex items-start gap-2">
                                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-rose-500 text-xs font-bold text-white">
@@ -136,7 +131,6 @@ export default function SupportButton() {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="flex items-center gap-2 border-t border-gray-100 p-3.5">
                                 <input
                                     type="text"
@@ -160,14 +154,13 @@ export default function SupportButton() {
                     )}
                 </div>
             )}
-
             <button
                 type="button"
                 onClick={togglePanel}
                 aria-label="پشتیبانی آنلاین"
                 className="
             flex h-15 w-15 items-center justify-center rounded-full
-           bg-rose-500 shadow-lg shadow-rose-500/30
+            bg-rose-500 shadow-lg shadow-rose-500/30
             transition duration-300 hover:scale-105 active:scale-95
             max-sm:h-14 max-sm:w-14
         "

@@ -37,21 +37,23 @@ export default function CategoryA() {
                 <Image className="w-150 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main2/img3.jpg" alt="" width={600} height={400} />
                 <Image className="w-150 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main2/img4.jpg" alt="" width={600} height={400} />
             </div>
-            <span className="w-px h-11 bg-black mx-auto mt-13 max-sm:mt-8"></span>
-            <h3 className="text-2xl font-bold text-center mt-14 max-sm:text-2xl">سرویس های پخش فیلم و سریال</h3>
-            <Carousel opts={{ align: "start", direction: "rtl" }} className="w-full max-w-6xl mx-auto mt-10 px-6">
-                <CarouselContent>
-                    {lists.map((form, index) => (
-                        <CarouselItem key={index} className="basis-auto">
-                            <div className="p-1 max-sm:w-65">
-                                <ProductCard img={form.img} title={form.title} oldPrice={form.oldPrice} price={form.price} showDiscount={index == 1 || index == 6 || index == 7 || index == 11} />
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselNext className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 left-0 max-sm:mt-30 max-sm:left-5 right-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
-                <CarouselPrevious className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 right-0 max-sm:mt-30 max-sm:right-2 left-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
-            </Carousel>
+            <div className="mt-25">
+                <span className="w-px h-11 bg-black mx-auto mt-13 max-sm:mt-8"></span>
+                <h3 className="text-2xl font-bold text-center mt-14 max-sm:text-2xl">سرویس های پخش فیلم و سریال</h3>
+                <Carousel opts={{ align: "start", direction: "rtl" }} className="w-full max-w-6xl mx-auto mt-10 px-6">
+                    <CarouselContent>
+                        {lists.map((form, index) => (
+                            <CarouselItem key={index} className="basis-auto">
+                                <div className="p-1 max-sm:w-65">
+                                    <ProductCard img={form.img} title={form.title} oldPrice={form.oldPrice} price={form.price} showDiscount={index == 1 || index == 6 || index == 7 || index == 11} />
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselNext className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 left-0 max-sm:mt-30 max-sm:left-5 right-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
+                    <CarouselPrevious className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 right-0 max-sm:mt-30 max-sm:right-2 left-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
+                </Carousel>
+            </div>
         </>
     );
-}
+}  
