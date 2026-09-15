@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -67,11 +70,60 @@ const aboutLinks = [
     "همکاری با ما",
 ];
 
-function Header() {
+function SearchBox({ onClose, className = "" }: { onClose: () => void; className?: string }) {
     return (
-        <div className="bg-[#0C0C15] flex flex-col items-center gap-4 px-4 py-4 sm:h-34 sm:flex-row sm:justify-between sm:gap-0 sm:px-37 sm:py-0">
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-11">
+        <div
+            dir="rtl"
+            className={`flex items-center gap-2 rounded-sm bg-white px-3 py-2 sm:px-4 sm:py-3 ${className}`}
+        >
+            <button
+                type="button"
+                onClick={onClose}
+                aria-label="بستن جستجو"
+                className="cursor-pointer text-[#0C0C15]"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-4 sm:size-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <input
+                type="text"
+                autoFocus
+                placeholder="نام برنامه یا سرویس"
+                className="flex-1 bg-transparent text-right text-sm sm:text-base text-[#0C0C15] placeholder:text-gray-400 outline-none"
+            />
+            <button
+                type="button"
+                className="cursor-pointer rounded-full bg-gray-100 px-3 py-1 text-[12px] sm:px-4 sm:py-1.5 sm:text-[13px] font-bold text-gray-400"
+            >
+                جستجو
+            </button>
+        </div>
+    );
+}
+
+function Header() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    return (
+        <div className="bg-[#0C0C15] relative flex flex-col items-center gap-4 px-4 py-4 sm:h-34 sm:flex-row sm:justify-between sm:gap-0 sm:px-37 sm:py-0">
+            <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-11">
                 <Image className="size-19" src="/foto/lisens.png" alt="Logo" width={100} height={100} />
+                {isSearchOpen && (
+                    <SearchBox
+                        onClose={() => setIsSearchOpen(false)}
+                        className="w-full sm:hidden"
+                    />
+                )}
                 <NavigationMenu>
                     <NavigationMenuList className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-7">
                         <NavigationMenuItem>
@@ -139,7 +191,22 @@ function Header() {
                 </NavigationMenu>
             </div>
             <div className="flex flex-row items-center gap-5 max-sm:gap-3">
-                <Image className="size-6 cursor-pointer" src="/foto/search.svg" alt="" width={24} height={24} />
+                <div className="relative">
+                    <Image
+                        onClick={() => setIsSearchOpen(true)}
+                        className="size-6 cursor-pointer"
+                        src="/foto/search.svg"
+                        alt=""
+                        width={24}
+                        height={24}
+                    />
+                    {isSearchOpen && (
+                        <SearchBox
+                            onClose={() => setIsSearchOpen(false)}
+                            className="hidden sm:flex sm:absolute sm:top-1/2 sm:right-0 sm:-translate-y-1/2 sm:w-[360] sm:z-50"
+                        />
+                    )}
+                </div>
                 <Image className="size-6 cursor-pointer" src="/foto/shop.svg" alt="" width={24} height={24} />
                 <Link href={"#"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
                 <div className="w-px h-3 bg-white mt-1.5"></div>
