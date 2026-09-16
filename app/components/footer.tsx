@@ -29,8 +29,22 @@ function Footer() {
                 <div className="flex flex-col items-center">
                     <p className="text-white font-medium mb-3 text-lg">مجوز ها و نماد های فعالیت</p>
                     <div className="flex flex-row gap-1 cursor-pointer">
-                        <Image className="w-24 bg-white rounded-lg" src="/foto/footer/footer-img/enamad.png" alt="نماد اعتماد" width={60} height={60} />
-                        <Image className="w-24 bg-white rounded-lg" src="/foto/footer/footer-img/samandehi.png" alt="" width={60} height={60} />
+                        <Image
+                            className="w-24 h-auto bg-white rounded-lg"
+                            src="/foto/footer/footer-img/enamad.png"
+                            alt="نماد اعتماد"
+                            width={192}
+                            height={192}
+                            quality={95}
+                        />
+                        <Image
+                            className="w-24 h-auto bg-white rounded-lg"
+                            src="/foto/footer/footer-img/samandehi.png"
+                            alt="نماد ساماندهی"
+                            width={192}
+                            height={192}
+                            quality={95}
+                        />
                     </div>
                 </div>
             </div>

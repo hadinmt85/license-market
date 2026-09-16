@@ -45,6 +45,18 @@ export default function SpecialServices() {
                 <CarouselNext className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 left-0 max-sm:mt-30 max-sm:left-5 right-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
                 <CarouselPrevious className="cursor-pointer w-13 max-sm:w-10 h-13 max-sm:h-10 right-0 max-sm:mt-30 max-sm:right-2 left-auto bg-red-500 border-none shadow-none hover:bg-red-400 text-white hover:text-white [&_svg]:rotate-180 [&_svg]:size-10! max-sm:[&_svg]:size-6!" />
             </Carousel>
+            <div className="flex justify-center w-full px-4 sm:px-6 mt-20 cursor-pointer">
+                <Image
+                    className="block w-full h-auto max-w-[1120] rounded-lg"
+                    src="/foto/main-img3/img2.webp"
+                    alt=""
+                    width={2240}
+                    height={1260}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1120px) 100vw, 1120px"
+                    quality={90}
+                    priority={false}
+                />
+            </div>
         </div>
     );
 }
