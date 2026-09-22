@@ -4,9 +4,12 @@ import { useState } from "react";
 
 function App() {
     const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [age, setAge] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     function handleClick() {
         if (name.trim() === "") {
@@ -14,6 +17,14 @@ function App() {
             return;
         } else if (name.length < 5) {
             alert("اسم باید حداقل پنج حرف باشد");
+            return;
+        }
+
+        if (email.trim() === "") {
+            alert("ایمیل را وارد کنید");
+            return;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert("ایمیل معتبر نیست");
             return;
         }
 
@@ -31,6 +42,14 @@ function App() {
             return;
         }
 
+        if (confirmPassword.trim() === "") {
+            alert("تکرار رمز عبور را وارد کنید");
+            return;
+        } else if (confirmPassword !== password) {
+            alert("رمز عبور و تکرار آن یکسان نیستند");
+            return;
+        }
+
         if (age.trim() === "") {
             alert("سن را وارد کنید");
             return;
@@ -43,30 +62,45 @@ function App() {
     }
 
     return (
-        <div dir="rtl" className="bg-gray-100 min-h-screen flex flex-col items-center justify-center gap-6 px-4">
-            <Image src="/foto/lisens.png" alt="" width={100} height={50} />
-            <div className="relative isolate w-full max-w-xs mt-10">
-                <div className="absolute -top-2 -left-1 -right-1 h-24 rounded-3xl bg-red-500 z-0 sm:-top-3 sm:-left-2 sm:-right-2 sm:h-28 md:-top-4 md:-left-3 md:-right-3 md:h-32"></div>
-                <div className="relative z-10 w-full rounded-3xl border-3 bg-white p-6">
-                    <h1 className="text-center text-xl font-bold text-gray-900">ثبت نام</h1>
-                    <p className="mt-1 text-center text-sm text-gray-500">
-                        قبلاً ثبت‌نام کرده‌اید؟ {" "}
+        <div dir="rtl" className="bg-gray-100 min-h-screen flex flex-col items-center justify-center gap-4 px-4 py-8 sm:gap-6 sm:py-10">
+            <Image src="/foto/lisens.png" alt="" width={100} height={50} className="w-16 sm:w-20 md:w-24 h-auto" />
+            <div className="relative isolate w-full max-w-[260] sm:max-w-xs md:max-w-sm mt-6 sm:mt-8">
+                <div className="absolute -top-2 -left-3 -right-3 h-16 rounded-2xl bg-red-500 z-0 sm:-top-3 sm:-left-3 sm:-right-3 sm:h-20 md:-top-4 md:-left-5 md:-right-5 md:h-28"></div>
+                <div className="relative z-10 w-full rounded-3xl border-3 bg-white p-4 sm:p-5 md:p-6">
+                    <h1 className="text-center text-lg sm:text-xl md:text-2xl font-bold text-gray-900">ثبت نام</h1>
+                    <p className="mt-1 text-center text-xs sm:text-sm text-gray-500">
+                        قبلاً ثبت‌نام کرده‌اید؟{" "}
                         <span className="cursor-pointer font-semibold text-green-600">وارد شوید</span>
                     </p>
-                    <div className="mt-6 flex flex-col gap-3">
+                    <div className="mt-5 sm:mt-6 flex flex-col gap-3">
                         <div className="relative">
                             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M20 21a8 8 0 0 0-16 0" />
                                     <circle cx="12" cy="7" r="4" />
                                 </svg>
                             </span>
                             <input
                                 type="text"
-                                placeholder="اسم"
-                                className="w-full rounded-xl border border-gray-200 bg-white py-3 pl-11 pr-4 text-right outline-none focus:border-red-400"
+                                placeholder="نام کاربری"
+                                className="w-full rounded-xl border border-gray-200 bg-white py-2.5 sm:py-3 pl-10 sm:pl-11 pr-3 sm:pr-4 text-sm sm:text-base text-right outline-none focus:border-red-400"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div className="relative">
+                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </span>
+                            <input
+                                type="email"
+                                placeholder="ایمیل"
+                                className="w-full rounded-xl border border-gray-200 bg-white py-2.5 sm:py-3 pl-10 sm:pl-11 pr-3 sm:pr-4 text-sm sm:text-base text-right outline-none focus:border-red-400"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="relative">
@@ -76,12 +110,12 @@ function App() {
                                 className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400"
                             >
                                 {showPassword ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-10-8-10-8a18.4 18.4 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
                                         <path d="M1 1l22 22" />
                                     </svg>
                                 ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M1 12s3-8 11-8 11 8 11 8-3 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
                                     </svg>
@@ -89,15 +123,41 @@ function App() {
                             </button>
                             <input
                                 type={showPassword ? "text" : "password"}
-                                placeholder="پسورد"
-                                className="w-full rounded-xl border border-gray-200 bg-white py-3 pl-11 pr-4 text-right outline-none focus:border-red-400"
+                                placeholder="رمز عبور"
+                                className="w-full rounded-xl border border-gray-200 bg-white py-2.5 sm:py-3 pl-10 sm:pl-11 pr-3 sm:pr-4 text-sm sm:text-base text-right outline-none focus:border-red-400"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="relative">
+                            <button
+                                type="button"
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400"
+                            >
+                                {showConfirmPassword ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-10-8-10-8a18.4 18.4 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                        <path d="M1 1l22 22" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M1 12s3-8 11-8 11 8 11 8-3 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                )}
+                            </button>
+                            <input
+                                type={showConfirmPassword ? "text" : "password"}
+                                placeholder="تکرار رمز عبور"
+                                className="w-full rounded-xl border border-gray-200 bg-white py-2.5 sm:py-3 pl-10 sm:pl-11 pr-3 sm:pr-4 text-sm sm:text-base text-right outline-none focus:border-red-400"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className="relative">
                             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 sm:size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                                     <rect x="3" y="4" width="18" height="18" rx="2" />
                                     <path d="M16 2v4M8 2v4M3 10h18" />
                                 </svg>
@@ -105,14 +165,14 @@ function App() {
                             <input
                                 type="number"
                                 placeholder="سن"
-                                className="w-full rounded-xl border border-gray-200 bg-white py-3 pl-11 pr-4 text-right outline-none focus:border-red-400"
+                                className="w-full rounded-xl border border-gray-200 bg-white py-2.5 sm:py-3 pl-10 sm:pl-11 pr-3 sm:pr-4 text-sm sm:text-base text-right outline-none focus:border-red-400"
                                 value={age}
                                 onChange={(e) => setAge(e.target.value)}
                             />
                         </div>
                     </div>
                     <button
-                        className="mt-6 w-full cursor-pointer rounded-xl bg-black py-3 font-bold text-white transition hover:bg-gray-900"
+                        className="mt-5 sm:mt-6 w-full cursor-pointer rounded-xl bg-black py-2.5 sm:py-3 text-sm sm:text-base font-bold text-white transition hover:bg-gray-900"
                         onClick={handleClick}
                     >
                         ورود
