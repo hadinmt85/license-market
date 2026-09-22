@@ -166,11 +166,11 @@ export default function SupportButton() {
         "
             >
                 {isPanelOpen ? (
-                    <svg viewBox="0 0 24 24" className="h-6 w-6 text-white" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <svg viewBox="0 0 24 24" className="h-6 w-6 text-white cursor-pointer" fill="none" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
                     </svg>
                 ) : (
-                    <Image className="size-7 w-15 h-15 rounded-full" src="/foto/chat.png" alt="" width={60} height={60} />
+                    <Image className="size-7 w-15 h-15 rounded-full cursor-pointer" src="/foto/chat.png" alt="" width={60} height={60} />
                 )}
             </button>
         </div>

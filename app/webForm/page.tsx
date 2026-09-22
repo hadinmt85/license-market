@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
                     <h1 className="text-center text-lg sm:text-xl md:text-2xl font-bold text-gray-900">ثبت نام</h1>
                     <p className="mt-1 text-center text-xs sm:text-sm text-gray-500">
                         قبلاً ثبت‌نام کرده‌اید؟{" "}
-                        <span className="cursor-pointer font-semibold text-green-600">وارد شوید</span>
+                        <Link href={"/webForm/login"} className="cursor-pointer font-semibold text-green-600">وارد شوید</Link>
                     </p>
                     <div className="mt-5 sm:mt-6 flex flex-col gap-3">
                         <div className="relative">

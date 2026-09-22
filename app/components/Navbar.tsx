@@ -210,7 +210,7 @@ function Header() {
                 <Image className="size-6 cursor-pointer" src="/foto/shop.svg" alt="" width={24} height={24} />
                 <Link href={"/webForm"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
                 <div className="w-px h-3 bg-white mt-1.5"></div>
-                <Link href={"/webForm"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
+                <Link href={"/webForm/login"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
             </div>
         </div>
     )
