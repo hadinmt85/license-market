@@ -1,19 +1,47 @@
+"use client";
+
 import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef, useState, useCallback } from "react";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel";
 
+const images = [
+    "/foto/main_img/img1.jpg",
+    "/foto/main_img/img2.webp",
+    "/foto/main_img/img3.webp",
+    "/foto/main_img/img4.webp",
+    "/foto/main_img/img5.webp",
+    "/foto/main_img/img6.webp",
+    "/foto/main_img/img7.webp",
+];
+
 function App() {
+    const plugin = useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: false })
+    );
+    const [api, setApi] = useState<CarouselApi>();
+
+    const handleImageLoad = useCallback(() => {
+        api?.reInit();
+    }, [api]);
+
     return (
         <div className="relative w-full max-w-7xl mx-auto my-14 max-sm:my-6 max-sm:px-2">
-            <Carousel opts={{ align: "start", direction: "rtl", loop: true }}>
+            <Carousel
+                opts={{ align: "start", direction: "rtl", loop: true }}
+                plugins={[plugin.current]}
+                setApi={setApi}
+            >
                 <CarouselContent>
-                    {["/foto/main_img/img1.jpg", "/foto/main_img/img2.webp", "/foto/main_img/img3.webp", "/foto/main_img/img4.webp", "/foto/main_img/img5.webp", "/foto/main_img/img6.webp", "/foto/main_img/img7.webp"].map((src, index) => (
+                    {images.map((src, index) => (
                         <CarouselItem key={index}>
                             <Image
                                 className="max-w-full mx-auto cursor-pointer h-150 max-sm:w-full max-sm:h-auto"
@@ -21,6 +49,7 @@ function App() {
                                 alt=""
                                 width={1200}
                                 height={600}
+                                onLoad={handleImageLoad}
                             />
                         </CarouselItem>
                     ))}
