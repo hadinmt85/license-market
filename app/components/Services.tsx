@@ -30,7 +30,7 @@ const Services = () => {
                                 width={64}
                                 height={64}
                             />
-                            <p className="text-base text-gray-700 font-semibold text-center leading-6 max-sm:text-sm max-sm:px-0.5">{service.title}</p>
+                            <p className="text-[14px] font-semibold text-center leading-6 max-sm:text-sm max-sm:px-0.5">{service.title}</p>
                         </div>
                     ))}
                 </div>
