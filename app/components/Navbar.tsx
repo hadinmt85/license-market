@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -71,6 +71,13 @@ const aboutLinks = [
 ];
 
 function SearchBox({ onClose, className = "" }: { onClose: () => void; className?: string }) {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        // Prevent the page from scrolling/jumping when the box opens.
+        inputRef.current?.focus({ preventScroll: true });
+    }, []);
+
     return (
         <div
             dir="rtl"
@@ -96,8 +103,8 @@ function SearchBox({ onClose, className = "" }: { onClose: () => void; className
                 </svg>
             </button>
             <input
+                ref={inputRef}
                 type="text"
-                autoFocus
                 placeholder="نام برنامه یا سرویس"
                 className="flex-1 bg-transparent text-right text-sm sm:text-base text-[#0C0C15] placeholder:text-gray-400 outline-none"
             />
@@ -118,12 +125,6 @@ function Header() {
         <div className="bg-[#0C0C15] relative flex flex-col items-center gap-4 px-4 py-4 sm:h-auto sm:flex-row sm:justify-between sm:gap-2 sm:px-4 sm:py-4 md:px-6 lg:px-12 xl:px-24">
             <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-4 lg:gap-11">
                 <Image className="size-19" src="/foto/lisens.png" alt="Logo" width={100} height={100} />
-                {isSearchOpen && (
-                    <SearchBox
-                        onClose={() => setIsSearchOpen(false)}
-                        className="w-full sm:hidden"
-                    />
-                )}
                 <NavigationMenu>
                     <NavigationMenuList className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-2 lg:gap-7">
                         <NavigationMenuItem>
@@ -193,25 +194,26 @@ function Header() {
             <div className="flex flex-row items-center gap-2 sm:gap-2 lg:gap-5">
                 <div className="relative">
                     <Image
-                        onClick={() => setIsSearchOpen(true)}
+                        onClick={() => setIsSearchOpen((v) => !v)}
                         className="size-6 cursor-pointer"
                         src="/foto/search.svg"
                         alt=""
                         width={24}
                         height={24}
                     />
-                    {isSearchOpen && (
-                        <SearchBox
-                            onClose={() => setIsSearchOpen(false)}
-                            className="hidden sm:flex sm:absolute sm:top-1/2 sm:right-0 sm:-translate-y-1/2 sm:w-[360] sm:z-50"
-                        />
-                    )}
                 </div>
                 <Image className="size-6 cursor-pointer" src="/foto/shop.svg" alt="" width={24} height={24} />
                 <Link href={"/webForm"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
                 <div className="w-px h-3 bg-white mt-1.5"></div>
                 <Link href={"/webForm/login"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
             </div>
+
+            {isSearchOpen && (
+                <SearchBox
+                    onClose={() => setIsSearchOpen(false)}
+                    className="absolute inset-x-3 top-full z-50 mt-2 shadow-xl sm:inset-x-auto sm:left-6 sm:w-[360px] sm:max-w-[calc(100vw-24px)]"
+                />
+            )}
         </div>
     )
 }
