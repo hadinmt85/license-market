@@ -81,7 +81,7 @@ function Offer() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className="mx-auto mt-14 flex w-full max-w-[1160px] flex-col items-center gap-4 rounded-md bg-rose-500 p-4 sm:flex-row sm:items-stretch sm:justify-end lg:mt-14 lg:gap-1.5">
+        <div className="mx-auto mt-10 flex w-[calc(100%-24px)] max-w-[1160px] flex-col items-center gap-3 rounded-md bg-rose-500 p-3 sm:mt-14 sm:w-full sm:flex-row sm:items-stretch sm:justify-end sm:gap-4 sm:p-4 lg:gap-1.5">
             <div className="flex w-full shrink-0 flex-col items-center justify-center gap-2 py-1 sm:w-[190px] sm:self-stretch sm:gap-3 sm:py-2 sm:pl-8 sm:pr-4">
                 <Image className="size-14 sm:size-24" src="/foto/pish.svg" alt="" width={96} height={96} />
                 <Image className="size-5 sm:size-8" src="/foto/pash.svg" alt="" width={32} height={32} />
@@ -96,7 +96,7 @@ function Offer() {
                         {items.map((item, index) => (
                             <CarouselItem key={index} className="flex basis-full flex-row pl-2 sm:basis-1/2 lg:basis-1/4">
                                 <div
-                                    className="relative mx-auto flex h-auto w-[260px] max-w-full cursor-pointer flex-col gap-2 bg-white pb-2 sm:w-[280px]"
+                                    className="relative mx-auto flex h-auto w-[260px] max-w-full cursor-pointer flex-col gap-2 bg-white pb-2 max-sm:w-[230px] sm:w-[280px]"
                                     onMouseEnter={() => setHoveredIndex(index)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                 >
@@ -111,9 +111,9 @@ function Offer() {
                                     >
                                         +
                                     </span>
-                                    <div className="relative h-55 max-sm:w-full max-sm:h-auto">
+                                    <div className="relative h-55 max-sm:h-44 max-sm:w-full">
                                         <Image
-                                            className={`h-55 w-full rounded-3xl object-cover transition-opacity duration-500 ease-in-out max-sm:h-auto ${hoveredIndex === index ? "opacity-0" : "opacity-100"
+                                            className={`h-55 w-full rounded-3xl object-cover transition-opacity duration-500 ease-in-out max-sm:h-44 ${hoveredIndex === index ? "opacity-0" : "opacity-100"
                                                 }`}
                                             src={item.img}
                                             alt=""
@@ -121,7 +121,7 @@ function Offer() {
                                             height={300}
                                         />
                                         <Image
-                                            className={`absolute inset-0 h-55 w-full rounded-3xl object-cover transition-opacity duration-500 ease-in-out max-sm:h-auto ${hoveredIndex === index ? "opacity-100" : "opacity-0"
+                                            className={`absolute inset-0 h-55 w-full rounded-3xl object-cover transition-opacity duration-500 ease-in-out max-sm:h-44 ${hoveredIndex === index ? "opacity-100" : "opacity-0"
                                                 }`}
                                             src={item.hover}
                                             alt=""

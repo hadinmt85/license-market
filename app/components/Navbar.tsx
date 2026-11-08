@@ -120,12 +120,14 @@ function SearchBox({ onClose, className = "" }: { onClose: () => void; className
 
 function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <div className="bg-[#0C0C15] relative flex flex-col items-center gap-4 px-4 py-4 sm:h-auto sm:flex-row sm:justify-between sm:gap-2 sm:px-4 sm:py-4 md:px-6 lg:px-12 xl:px-24">
             <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-4 lg:gap-11">
                 <Image className="size-19" src="/foto/lisens.png" alt="Logo" width={100} height={100} />
-                <NavigationMenu>
+                <div className="hidden sm:block">
+                    <NavigationMenu>
                     <NavigationMenuList className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-2 lg:gap-7">
                         <NavigationMenuItem>
                             <Link href={"#"} className="max-sm:block max-sm:text-center text-white p-1 px-3 text-sm lg:text-base rounded-full transition-all duration-300 ease-out hover:bg-[#d32e3b] hover:text-white whitespace-nowrap">خانه</Link>
@@ -190,11 +192,15 @@ function Header() {
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
+                </div>
             </div>
             <div className="flex flex-row items-center gap-2 sm:gap-2 lg:gap-5">
                 <div className="relative">
                     <Image
-                        onClick={() => setIsSearchOpen((v) => !v)}
+                        onClick={() => {
+                            setIsSearchOpen((v) => !v);
+                            setIsMenuOpen(false);
+                        }}
                         className="size-6 cursor-pointer"
                         src="/foto/search.svg"
                         alt=""
@@ -206,7 +212,42 @@ function Header() {
                 <Link href={"/webForm"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
                 <div className="w-px h-3 bg-white mt-1.5"></div>
                 <Link href={"/webForm/login"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
+                <button
+                    type="button"
+                    onClick={() => {
+                        setIsMenuOpen((v) => !v);
+                        setIsSearchOpen(false);
+                    }}
+                    aria-label="منو"
+                    aria-expanded={isMenuOpen}
+                    className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-md text-white transition-colors hover:bg-[#d32e3b] sm:hidden"
+                >
+                    {isMenuOpen ? (
+                        <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+                            <path d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                    ) : (
+                        <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+                            <path d="M4 7h16M4 12h16M4 17h16" />
+                        </svg>
+                    )}
+                </button>
             </div>
+
+            {isMenuOpen && (
+                <nav className="absolute inset-x-3 top-full z-50 mt-2 overflow-hidden rounded-xl bg-[#0C0C15] p-2 shadow-2xl sm:hidden">
+                    {["خانه", "خدمات ما", "وبلاگ", "درباره ما"].map((label) => (
+                        <Link
+                            key={label}
+                            href="#"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#d32e3b]"
+                        >
+                            {label}
+                        </Link>
+                    ))}
+                </nav>
+            )}
 
             {isSearchOpen && (
                 <SearchBox
