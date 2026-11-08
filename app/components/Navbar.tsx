@@ -115,8 +115,8 @@ function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <div className="bg-[#0C0C15] relative flex flex-col items-center gap-4 px-4 py-4 sm:h-34 sm:flex-row sm:justify-between sm:gap-0 sm:px-37 sm:py-0">
-            <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-11">
+        <div className="bg-[#0C0C15] relative flex flex-col items-center gap-4 px-4 py-4 sm:h-auto sm:flex-row sm:justify-between sm:gap-2 sm:px-4 sm:py-4 md:px-6 lg:px-12 xl:px-24">
+            <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-4 lg:gap-11">
                 <Image className="size-19" src="/foto/lisens.png" alt="Logo" width={100} height={100} />
                 {isSearchOpen && (
                     <SearchBox
@@ -125,9 +125,9 @@ function Header() {
                     />
                 )}
                 <NavigationMenu>
-                    <NavigationMenuList className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-7">
+                    <NavigationMenuList className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-2 lg:gap-7">
                         <NavigationMenuItem>
-                            <Link href={"#"} className="max-sm:block max-sm:text-center text-white p-1 px-3 text-base rounded-full transition-all duration-300 ease-out hover:bg-[#d32e3b] hover:text-white">خانه</Link>
+                            <Link href={"#"} className="max-sm:block max-sm:text-center text-white p-1 px-3 text-sm lg:text-base rounded-full transition-all duration-300 ease-out hover:bg-[#d32e3b] hover:text-white whitespace-nowrap">خانه</Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                             <NavigationMenuTrigger className="max-sm:w-full max-sm:justify-center text-white text-base cursor-pointer rounded-full px-2 py-2 transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">
@@ -190,7 +190,7 @@ function Header() {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <div className="flex flex-row items-center gap-5 max-sm:gap-3">
+            <div className="flex flex-row items-center gap-2 sm:gap-2 lg:gap-5">
                 <div className="relative">
                     <Image
                         onClick={() => setIsSearchOpen(true)}
@@ -208,9 +208,9 @@ function Header() {
                     )}
                 </div>
                 <Image className="size-6 cursor-pointer" src="/foto/shop.svg" alt="" width={24} height={24} />
-                <Link href={"/webForm"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
+                <Link href={"/webForm"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">عضویت</Link>
                 <div className="w-px h-3 bg-white mt-1.5"></div>
-                <Link href={"/webForm/login"} className="text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
+                <Link href={"/webForm/login"} className="whitespace-nowrap text-base px-1.5 py-1 text-white cursor-pointer rounded-full transition-all duration-300 ease-out data-[state=open]:bg-[#d32e3b] hover:bg-[#d32e3b] hover:text-white">وارد شوید</Link>
             </div>
         </div>
     )

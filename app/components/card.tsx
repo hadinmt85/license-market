@@ -8,7 +8,7 @@ interface BlogCardProps {
 
 function Blogcard({ img, title, date }: BlogCardProps) {
     return (
-        <div className="relative w-100 cursor-pointer max-sm:w-full max-sm:max-w-md">
+        <div className="relative w-full max-w-[400px] cursor-pointer max-sm:mx-auto">
             <div className="relative">
                 <Image className="w-full rounded-2xl" src={img} alt="" width={500} height={300} />
             </div>

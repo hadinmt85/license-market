@@ -29,13 +29,13 @@ const three = [
 export default function CategoryB() {
     return (
         <>
-            <div className="flex flex-row gap-6 justify-center mt-30 max-sm:flex-col max-sm:items-center max-sm:mt-10 max-sm:px-2">
-                <Image className="w-145 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main3/img1.jpg" alt="" width={600} height={400} />
-                <Image className="w-145 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main3/img2.jpg" alt="" width={600} height={400} />
+            <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 items-center gap-6 px-3 sm:grid-cols-2 lg:mt-30">
+                <Image className="h-auto w-full cursor-pointer" src="/foto/main3/img1.jpg" alt="" width={600} height={400} />
+                <Image className="h-auto w-full cursor-pointer" src="/foto/main3/img2.jpg" alt="" width={600} height={400} />
             </div>
-            <div className="flex flex-row gap-6 justify-center mt-12 max-sm:flex-col max-sm:items-center max-sm:px-2">
-                <Image className="w-145 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main3/img3.jpg" alt="" width={600} height={400} />
-                <Image className="w-145 cursor-pointer max-sm:w-full max-sm:h-auto" src="/foto/main3/img4.jpg" alt="" width={600} height={400} />
+            <div className="mx-auto mt-6 grid max-w-6xl grid-cols-1 items-center gap-6 px-3 sm:mt-12 sm:grid-cols-2">
+                <Image className="h-auto w-full cursor-pointer" src="/foto/main3/img3.jpg" alt="" width={600} height={400} />
+                <Image className="h-auto w-full cursor-pointer" src="/foto/main3/img4.jpg" alt="" width={600} height={400} />
             </div>
             <div className="mt-25">
                 <span className="w-px h-11 bg-black mx-auto mt-13 max-sm:mt-8"></span>

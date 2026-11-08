@@ -37,7 +37,7 @@ export default function Product() {
             <h3 className="text-2xl font-bold text-center mt-14 max-sm:text-2xl">
                 پرفروش های این ماه
             </h3>
-            <div className="flex flex-row justify-center gap-5 mt-10 max-sm:flex-col max-sm:w-[calc(100%-20px)] max-sm:p-3 max-sm:items-center max-sm:mx-auto">
+            <div className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-center gap-5 px-3">
                 {forms.map((form, index) => (
                     <ProductCard
                         key={index}

@@ -8,7 +8,7 @@ export default function SupportButton() {
     const togglePanel = () => setIsPanelOpen((prev) => !prev);
 
     return (
-        <div dir="rtl" className="fixed right-4 bottom-6 z-50 flex flex-col items-start gap-3 max-sm:bottom-4 max-sm:left-4">
+        <div dir="rtl" className="fixed bottom-6 right-4 z-50 flex flex-col items-start gap-3 max-sm:bottom-4 max-sm:right-auto max-sm:left-4">
             {isPanelOpen && (
                 <div className="w-[340] max-w-[calc(100vw-32px)] max-h-[calc(100vh-110px)] overflow-hidden rounded-xl bg-[#f2f2f2] shadow-2xl shadow-black/25 animate-in fade-in slide-in-from-bottom-4 duration-200">
                     <div className="flex items-center justify-between bg-[#ef4460] px-3.5 py-2.5 text-white">

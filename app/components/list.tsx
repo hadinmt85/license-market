@@ -18,7 +18,7 @@ function ProductCard({ img, hover, title, oldPrice, price, showDiscount }: Props
 
     return (
         <div
-            className="relative h-95 w-70 bg-white flex flex-col gap-2 cursor-pointer max-sm:w-full max-sm:h-auto max-sm:pb-4"
+            className="relative flex h-auto w-[260px] max-w-full flex-col gap-2 bg-white pb-4 sm:w-[280px] cursor-pointer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
@@ -39,7 +39,7 @@ function ProductCard({ img, hover, title, oldPrice, price, showDiscount }: Props
             )}
             <div className="relative">
                 <Image
-                    className={`w-75 rounded-2xl transition-opacity duration-500 ease-in-out max-sm:w-full ${hover && hovered ? "opacity-0" : "opacity-100"
+                    className={`h-auto w-full rounded-2xl transition-opacity duration-500 ease-in-out ${hover && hovered ? "opacity-0" : "opacity-100"
                         }`}
                     src={img}
                     alt=""
@@ -48,7 +48,7 @@ function ProductCard({ img, hover, title, oldPrice, price, showDiscount }: Props
                 />
                 {hover && (
                     <Image
-                        className={`absolute top-0 left-0 w-75 rounded-2xl transition-opacity duration-500 ease-in-out max-sm:w-full ${hovered ? "opacity-100" : "opacity-0"
+                        className={`absolute left-0 top-0 h-auto w-full rounded-2xl transition-opacity duration-500 ease-in-out ${hovered ? "opacity-100" : "opacity-0"
                             }`}
                         src={hover}
                         alt=""

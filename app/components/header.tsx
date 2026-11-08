@@ -1,7 +1,7 @@
 function App() {
     return (
-        <div className="h-14 bg-[#3ECF8E] flex justify-center items-center max-sm:px-2">
-            <p className="text-white text-lg font-bold max-sm:text-sm cursor-pointer">☎️ مرکز تماس مشتریان : ۹۱۰۹۴۴۰۰-۰۲۱</p>
+        <div className="flex min-h-14 h-auto items-center justify-center bg-[#3ECF8E] px-3 py-2 text-center">
+            <p className="cursor-pointer text-sm font-bold text-white sm:text-lg">☎️ مرکز تماس مشتریان : ۹۱۰۹۴۴۰۰-۰۲۱</p>
         </div>
     )
 }

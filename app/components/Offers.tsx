@@ -81,22 +81,22 @@ function Offer() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className="flex flex-row justify-end my-auto mx-auto gap-1.5 bg-rose-500 w-290 p-4 rounded-md mt-14 max-sm:flex-col max-sm:w-[calc(100%-20px)] max-sm:items-center max-sm:mt-8">
-            <div className="max-sm:flex mr-5 pr-5 max-sm:flex-col max-sm:items-center max-sm:ml-9">
-                <Image className="size-24 ml-12 mt-20 max-sm:ml-0 max-sm:mt-2" src="/foto/pish.svg" alt="" width={96} height={96} />
-                <Image className="size-8 mr-7 mt-5 max-sm:mr-0 max-sm:mt-3" src="/foto/pash.svg" alt="" width={32} height={32} />
+        <div className="mx-auto mt-14 flex w-full max-w-[1160px] flex-col items-center gap-4 rounded-md bg-rose-500 p-4 sm:flex-row sm:items-stretch sm:justify-end lg:mt-14 lg:gap-1.5">
+            <div className="mr-0 flex flex-col items-center pr-0 sm:mr-5 sm:pr-5">
+                <Image className="ml-12 mt-20 size-24 max-sm:ml-0 max-sm:mt-2" src="/foto/pish.svg" alt="" width={96} height={96} />
+                <Image className="mr-7 mt-5 size-8 max-sm:mr-0 max-sm:mt-3" src="/foto/pash.svg" alt="" width={32} height={32} />
                 <div className="flex">
                     <p className="text-white text-base mt-5 cursor-pointer font-medium">مشاهده همه</p>
                     <Image className="size-4 mt-6" src="/foto/chevron.svg" alt="" width={16} height={16} />
                 </div>
             </div>
-            <div className="flex-1 min-w-0">
+            <div className="w-full min-w-0 flex-1 self-stretch">
                 <Carousel opts={{ align: "start", direction: "rtl" }} className="w-full">
                     <CarouselContent className="-ml-2">
                         {items.map((item, index) => (
-                            <CarouselItem key={index} className="flex flex-row basis-1/4 pl-2 max-sm:basis-full max-sm:w-7">
+                            <CarouselItem key={index} className="flex basis-full flex-row pl-2 sm:basis-1/2 lg:basis-1/4">
                                 <div
-                                    className="relative h-83 w-70 bg-white flex flex-col gap-2 cursor-pointer mx-auto max-sm:w-full max-sm:h-auto max-sm:mb-2 max-sm:pb-4"
+                                    className="relative mx-auto flex h-auto w-[260px] max-w-full cursor-pointer flex-col gap-2 bg-white pb-2 sm:w-[280px]"
                                     onMouseEnter={() => setHoveredIndex(index)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                 >

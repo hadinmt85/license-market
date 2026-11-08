@@ -4,14 +4,14 @@ import Link from "next/link";
 function Footer() {
     return (
         <>
-            <div className="h-14 w-full bg-gray-900 mt-55 flex flex-row gap-11 items-center justify-center max-sm:h-auto max-sm:flex-col max-sm:gap-5 max-sm:py-5 max-sm:mt-20">
+            <div className="mt-24 flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-3 bg-gray-900 px-4 py-4 lg:mt-55">
                 <Link href={"#"} className="text-white cursor-pointer hover:text-gray-400 text-base">صفحه نخست</Link>
                 <Link href={"#"} className="text-white cursor-pointer hover:text-gray-400 text-base">بلاگ</Link>
                 <Link href={"#"} className="text-white cursor-pointer hover:text-gray-400 text-base">قوانین</Link>
                 <Link href={"#"} className="text-white cursor-pointer hover:text-gray-400 text-base">درباره ما</Link>
                 <Link href={"#"} className="text-white cursor-pointer hover:text-gray-400 text-base">ارتباط با ما</Link>
             </div>
-            <div className="h-40 w-full bg-black flex flex-row justify-between items-center px-40 py-22 max-sm:h-auto max-sm:flex-col max-sm:px-4 max-sm:py-8 max-sm:gap-8">
+            <div className="flex w-full flex-col items-center justify-between gap-8 bg-black px-4 py-10 sm:px-8 lg:flex-row lg:px-20">
                 <div className="flex flex-col items-start gap-6 max-sm:items-center">
                     <div className="flex flex-row items-center gap-10 max-sm:gap-5">
                         <Image className="w-5 cursor-pointer" src="/foto/footer/footer-icon/instagram.svg" alt="" width={20} height={20} />

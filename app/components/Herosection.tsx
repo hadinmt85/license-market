@@ -44,7 +44,7 @@ function App() {
                     {images.map((src, index) => (
                         <CarouselItem key={index}>
                             <Image
-                                className="max-w-full mx-auto cursor-pointer h-150 max-sm:w-full max-sm:h-auto"
+                                className="mx-auto h-auto w-full cursor-pointer rounded-lg"
                                 src={src}
                                 alt=""
                                 width={1200}

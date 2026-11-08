@@ -20,7 +20,7 @@ const Services = () => {
         <div className="mt-25">
             <h3 className="text-2xl font-bold text-center mt-14 mb-10 max-sm:text-2xl">خدمات لایسنس‌مارکت</h3>
             <div className="max-w-6xl mx-auto max-sm:px-2">
-                <div className="grid grid-cols-6 max-md:grid-cols-4 max-sm:grid-cols-3 divide-x divide-y divide-gray-200 border border-gray-200 rounded-md overflow-hidden">
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-gray-200 border border-gray-200 rounded-md overflow-hidden">
                     {services.map((service, index) => (
                         <div key={index} className="flex flex-col items-center justify-center gap-3 py-6 px-3 cursor-pointer hover:bg-gray-50 transition-colors max-sm:py-5">
                             <Image
