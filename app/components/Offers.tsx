@@ -82,7 +82,7 @@ function Offer() {
 
     return (
         <div className="mx-auto mt-14 flex w-full max-w-[1160px] flex-col items-center gap-4 rounded-md bg-rose-500 p-4 sm:flex-row sm:items-stretch sm:justify-end lg:mt-14 lg:gap-1.5">
-            <div className="flex w-full shrink-0 flex-col items-center gap-3 sm:w-auto sm:mr-5 sm:pr-5">
+            <div className="flex w-full shrink-0 flex-col items-center justify-center gap-3 py-2 sm:w-auto sm:self-stretch sm:mr-5 sm:pr-5">
                 <Image className="size-24" src="/foto/pish.svg" alt="" width={96} height={96} />
                 <Image className="size-8" src="/foto/pash.svg" alt="" width={32} height={32} />
                 <div className="flex items-center justify-center gap-1">
