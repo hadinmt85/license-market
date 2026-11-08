@@ -82,12 +82,12 @@ function Offer() {
 
     return (
         <div className="mx-auto mt-14 flex w-full max-w-[1160px] flex-col items-center gap-4 rounded-md bg-rose-500 p-4 sm:flex-row sm:items-stretch sm:justify-end lg:mt-14 lg:gap-1.5">
-            <div className="flex w-full shrink-0 flex-col items-center justify-center gap-3 py-2 sm:w-[190px] sm:self-stretch sm:pl-8 sm:pr-4">
-                <Image className="size-24" src="/foto/pish.svg" alt="" width={96} height={96} />
-                <Image className="size-8" src="/foto/pash.svg" alt="" width={32} height={32} />
+            <div className="flex w-full shrink-0 flex-col items-center justify-center gap-2 py-1 sm:w-[190px] sm:self-stretch sm:gap-3 sm:py-2 sm:pl-8 sm:pr-4">
+                <Image className="size-14 sm:size-24" src="/foto/pish.svg" alt="" width={96} height={96} />
+                <Image className="size-5 sm:size-8" src="/foto/pash.svg" alt="" width={32} height={32} />
                 <div className="flex items-center justify-center gap-1">
-                    <p className="cursor-pointer text-base font-medium text-white">مشاهده همه</p>
-                    <Image className="size-4" src="/foto/chevron.svg" alt="" width={16} height={16} />
+                    <p className="cursor-pointer text-sm font-medium text-white sm:text-base">مشاهده همه</p>
+                    <Image className="size-3.5 sm:size-4" src="/foto/chevron.svg" alt="" width={16} height={16} />
                 </div>
             </div>
             <div className="w-full min-w-0 flex-1 self-stretch">
