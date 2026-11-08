@@ -36,7 +36,7 @@ export default function SpecialServices() {
                 <CarouselContent>
                     {four.map((form, index) => (
                         <CarouselItem key={index} className="basis-auto">
-                            <div className="p-1 max-sm:w-65">
+                            <div className="w-[260px] p-1 sm:w-[280px]">
                                 <ProductCard img={form.img} hover={form.hover} title={form.title} oldPrice={form.oldPrice} price={form.price} showDiscount={index == 1 || index == 6 || index == 7 || index == 11} />
                             </div>
                         </CarouselItem>

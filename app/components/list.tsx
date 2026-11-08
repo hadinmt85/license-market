@@ -18,7 +18,7 @@ function ProductCard({ img, hover, title, oldPrice, price, showDiscount }: Props
 
     return (
         <div
-            className="relative flex h-auto w-[260px] max-w-full flex-col gap-2 bg-white pb-4 sm:w-[280px] cursor-pointer"
+            className="relative flex h-auto w-full max-w-[280px] flex-col gap-2 bg-white pb-4 cursor-pointer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >

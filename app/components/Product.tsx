@@ -37,17 +37,18 @@ export default function Product() {
             <h3 className="text-2xl font-bold text-center mt-14 max-sm:text-2xl">
                 پرفروش های این ماه
             </h3>
-            <div className="mx-auto mt-10 flex max-w-6xl flex-wrap justify-center gap-5 px-3">
+            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 justify-items-center gap-5 px-3 sm:grid-cols-2 lg:grid-cols-4">
                 {forms.map((form, index) => (
-                    <ProductCard
-                        key={index}
-                        img={form.img}
-                        hover={form.hover}
-                        title={form.title}
-                        oldPrice={form.oldPrice}
-                        price={form.newPrice}
-                        showDiscount={true}
-                    />
+                    <div key={index} className="w-full max-w-[280px]">
+                        <ProductCard
+                            img={form.img}
+                            hover={form.hover}
+                            title={form.title}
+                            oldPrice={form.oldPrice}
+                            price={form.newPrice}
+                            showDiscount={true}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

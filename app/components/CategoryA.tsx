@@ -129,7 +129,7 @@ export default function CategoryA() {
                     <CarouselContent>
                         {lists.map((form, index) => (
                             <CarouselItem key={index} className="basis-auto">
-                                <div className="p-1 max-sm:w-65">
+                                <div className="w-[260px] p-1 sm:w-[280px]">
                                     <ProductCard
                                         img={form.img}
                                         hover={form.hover}
